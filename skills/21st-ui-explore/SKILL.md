@@ -23,11 +23,18 @@ Create real choices without abandoning the project's visual identity.
    do not count.
 4. Keep shared constraints fixed: real stack, tokens, brand assets, required
    content, accessibility, and responsive behavior.
-5. Generate or implement comparable previews. Prefer:
+5. Create comparable previews. Check MCP `get_usage.aiGenerationEnabled` or
+   run `21st usage` and read the `21st AI generation` line. CLI 1.17.1+ also
+   supports `21st usage --json`. Only when AI is explicitly enabled, use hosted
+   generation with available AI credits:
 
    ```bash
    21st generate "<goal plus fixed constraints>" --context auto --variants 3
    ```
+
+   Otherwise, implement the previews with your own coding agent, grounded in
+   `21st search` and `21st get` (MCP: `search` and `get_component`). Do not call
+   or suggest hosted `generate` or `iterate_generation` without AI access.
 
 6. Present the options together when the host supports a picker. Otherwise give
    each option a preview/deep link and a compact comparison.

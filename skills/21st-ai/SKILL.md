@@ -27,8 +27,18 @@ the design in the target project's real stack — not paste raw HTML verbatim.
 ## Auth
 
 Same credential as the rest of the CLI: `21st login` (saved token) or a
-`21st_sk_` key via `--api-key` / `TWENTYFIRST_TOKEN`. `21st usage` shows tier +
-remaining quota. (See the `21st-cli-use` skill for the full auth notes.)
+`21st_sk_` key via `--api-key` / `TWENTYFIRST_TOKEN`. `21st usage` (MCP:
+`get_usage`) shows the account tier, `aiGenerationEnabled`, and remaining free
+daily component-code retrieval quota. It does not report the AI credit balance.
+(See the `21st-cli-use` skill for the full auth notes.)
+
+Before generating or iterating, check MCP `get_usage.aiGenerationEnabled` or
+the `21st AI generation` line from `21st usage`. CLI 1.17.1 also supports
+`21st usage --json`. Proceed only when AI is explicitly enabled; missing or
+unknown status does not grant access. A base Builder
+subscription does not enable AI. When it is `false`, use `search` →
+`get_component` and adapt the code with the user's own agent. Do not attempt
+`generate` or `iterate_generation`, including through the CLI as a fallback.
 
 ## The loop
 
@@ -63,8 +73,8 @@ editor's built-in browser to watch the variants render and update in place.
 
 ## Metering
 
-- **generate** — small free daily bucket, then a paywall (`21st usage` shows
-  what's left). Community access / membership lifts it.
+- **generate** — requires AI enabled on the account and available AI credits.
+  Builder and Team start with AI off; membership alone does not enable it.
 - **iterate** — billed by real token cost per edit (the shared 21st AI credit
   pool); it does real model work each call, so batch changes into one clear
   instruction rather than many tiny ones.
@@ -77,6 +87,13 @@ Claude Code): `generate` (with `mode: "sketch"`), `get_generation`,
 `iterate_generation` and `get_take`. `iterate_generation` also returns the
 freshly-edited `html` + `copyPrompt`, so you can grab the code without a second
 call. Wire up the server with `21st init --client <name> --write`.
+
+The MCP tool list depends on the account: `generate` and `iterate_generation`
+are listed only when AI is enabled. `get_generation` and `get_take` remain
+available for reading existing drafts. After enabling AI, refresh the client's
+tool list or reconnect the MCP server. If a cached tool call returns
+`ai_subscription_required`, stop generation attempts and use the component
+search and retrieval workflow above.
 
 ## Tips
 

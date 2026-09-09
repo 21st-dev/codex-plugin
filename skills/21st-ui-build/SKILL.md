@@ -21,11 +21,18 @@ Preserve the product's identity while using 21st supply to accelerate implementa
 
 4. Reuse installed project primitives first. Retrieve or install a 21st result
    only when it reduces duplication or materially improves the result.
-5. If no result fits, generate project-aware alternatives:
+5. If no result fits, check MCP `get_usage.aiGenerationEnabled` or run
+   `21st usage` and read the `21st AI generation` line. CLI 1.17.1+ also supports
+   `21st usage --json`. Only when AI is explicitly enabled, generate
+   project-aware alternatives using available AI credits:
 
    ```bash
    21st generate "<goal and constraints>" --context auto --variants 3
    ```
+
+   Otherwise, implement alternatives with your own coding agent, grounded in
+   `21st search` and `21st get` (MCP: `search` and `get_component`). Do not call
+   or suggest hosted `generate` or `iterate_generation` without AI access.
 
 6. Implement the selected direction in the project's real framework. Do not
    paste sketch HTML when the project expects React components, tokens, or

@@ -29,15 +29,21 @@ Two interchangeable credentials, both sent as the API key:
    **https://21st.dev/settings/api-keys**). Pass via `--api-key <key>` or the
    `TWENTYFIRST_TOKEN` / `API_KEY_21ST` env var. Best for CI.
 
-`21st whoami` shows the signed-in account; `21st usage` shows tier + remaining
-free quota; `21st logout` clears the saved login.
+`21st whoami` shows the signed-in account; `21st usage` shows retrieval
+tier/quota and the `21st AI generation` status, not an AI credit balance.
+For structured status, use MCP `get_usage.aiGenerationEnabled` or CLI 1.17.1+
+`21st usage --json`. Missing or unknown status does not grant AI access. `21st logout`
+clears the saved login.
 
 ## Metering
 
 Metadata (search, previews, a theme's CSS) is **free**. Retrieving component
-**code** (`21st get`, install) and AI generation are metered per user: a small
-free daily quota, then a paywall (`21st usage` shows what's left). Community
-access / membership lifts the quota.
+**code** (`21st get`, install) has a free daily quota; Builder includes
+unlimited retrieval. Hosted 21st AI requires separate AI access and consumes
+AI credits. Base Builder has AI off. Check `21st usage` before choosing
+generation: when AI is not explicitly enabled, search and retrieve code,
+then adapt it with your own coding agent. Do not retry a generation denied
+with `ai_subscription_required` until AI access is enabled.
 
 ---
 
@@ -91,9 +97,10 @@ also work with stock shadcn:
 
 ## Generate
 
-When nothing in the catalog fits, **sketch it with 21st AI** and iterate on it
-from the terminal — that whole loop (`21st generate` → `generation` → `iterate`
-→ `take`) lives in the **`21st-ai`** skill:
+When nothing in the catalog fits and `21st usage` explicitly reports AI
+generation enabled, sketch it with hosted 21st AI and iterate from
+the terminal. That loop (`21st generate` → `generation` → `iterate` → `take`)
+lives in the **`21st-ai`** skill. With AI off, adapt catalog code locally instead:
 
 ```bash
 21st generate "a glassy pricing section with a monthly/yearly toggle"
