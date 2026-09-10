@@ -7,7 +7,23 @@
     "url": "https://21st.dev"
   },
   "homepage": "https://21st.dev",
+  "repository": "https://github.com/21st-dev/codex-plugin",
+  "license": "Apache-2.0",
   "keywords": ["react", "shadcn", "ui", "components", "mcp", "frontend", "cli"],
-  "skills": ["./skills"],
-  "mcp": "./.mcp.json"
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "21st.dev",
+    "shortDescription": "Search, install, and publish React/shadcn UI",
+    "longDescription": "Search, install, and publish React/shadcn components, themes, and templates on 21st.dev using bundled skills and the remote 21st MCP server.",
+    "developerName": "21st.dev",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://21st.dev",
+    "defaultPrompt": [
+      "Find a polished shadcn component for my current UI.",
+      "Install a 21st.dev component into this project.",
+      "Publish this component to 21st.dev."
+    ]
+  }
 }

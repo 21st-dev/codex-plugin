@@ -38,6 +38,12 @@ instead of hand-writing UI.
    (Replace `21st-dev/codex-plugin` with the actual `<org>/<repo>`, git URL, or
    local path that hosts this directory.)
 
+   Refresh the Git-backed marketplace later with:
+
+   ```bash
+   codex plugin marketplace upgrade 21st
+   ```
+
 3. Open the in-CLI plugin browser and install `21st`:
 
    ```
@@ -68,7 +74,9 @@ the shell that launched Codex.
 .codex-plugin/
   plugin.json     # skills + mcp references
 .mcp.json         # remote 21st MCP (bearer via API_KEY_21ST env)
-marketplace.json  # self-hosted marketplace listing this plugin
+.agents/plugins/
+  marketplace.json  # Codex marketplace manifest
+marketplace.json    # legacy marketplace manifest
 skills/
   21st-cli-use/
     SKILL.md       # bundled skills (shared with the Claude Code plugin
