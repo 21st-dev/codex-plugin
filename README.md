@@ -65,10 +65,12 @@ the shell that launched Codex.
 ## Layout
 
 ```
+.agents/plugins/
+  marketplace.json  # path Codex CLI looks for (`codex plugin marketplace add`)
 .codex-plugin/
-  plugin.json     # skills + mcp references
-.mcp.json         # remote 21st MCP (bearer via API_KEY_21ST env)
-marketplace.json  # self-hosted marketplace listing this plugin
+  plugin.json       # skills + mcp references
+.mcp.json           # remote 21st MCP (bearer via API_KEY_21ST env)
+marketplace.json    # same listing, kept at repo root for older docs
 skills/
   21st-cli-use/
     SKILL.md       # bundled skills (shared with the Claude Code plugin
