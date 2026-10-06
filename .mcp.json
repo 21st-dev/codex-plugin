@@ -1,6 +1,7 @@
 {
-  "mcp_servers": {
+  "mcpServers": {
     "21st": {
+      "type": "http",
       "url": "https://21st.dev/api/mcp",
       "bearer_token_env_var": "API_KEY_21ST"
     }

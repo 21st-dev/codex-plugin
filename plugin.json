@@ -1,0 +1,37 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "21st",
+  "version": "0.5.0",
+  "description": "Find and build UI, and create editable product videos from your project with 21st tools.",
+  "author": {
+    "name": "21st.dev",
+    "url": "https://21st.dev"
+  },
+  "homepage": "https://21st.dev",
+  "repository": "https://github.com/21st-dev/codex-plugin",
+  "license": "MIT",
+  "keywords": ["react", "shadcn", "ui", "components", "video", "remotion", "mcp", "cli"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "21st",
+        "shortDescription": "Build UI and editable product videos",
+        "longDescription": "Find and install React components, build project-aware UI, and create product videos with a live editor, reusable video blocks, visual checks, variants, and export.",
+        "developerName": "21st.dev",
+        "category": "Developer Tools",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://21st.dev",
+        "privacyPolicyURL": "https://21st.dev/privacy",
+        "termsOfServiceURL": "https://21st.dev/terms",
+        "defaultPrompt": [
+          "Make a launch video for this repo and open the editable project beside the chat",
+          "Find a pricing section and add it to my Next.js app",
+          "Make this selected video layer bigger"
+        ],
+        "brandColor": "#0040FF",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg"
+      }
+    }
+  }
+}

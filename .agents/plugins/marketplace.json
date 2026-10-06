@@ -1,33 +1,20 @@
 {
   "name": "21st",
-  "owner": {
-    "name": "21st.dev",
-    "url": "https://21st.dev"
-  },
-  "metadata": {
-    "description": "Self-hosted 21st.dev plugin marketplace for Codex. The official Codex plugin directory is not open yet, so add this marketplace by its git repo / URL directly.",
-    "version": "0.4.1"
+  "interface": {
+    "displayName": "21st"
   },
   "plugins": [
     {
       "name": "21st",
-      "source": ".",
-      "description": "Find, generate, build, explore, review, and publish project-aware UI with seven verified 21st.dev skills plus the remote 21st MCP server.",
-      "version": "0.4.1",
-      "author": {
-        "name": "21st.dev",
-        "url": "https://21st.dev"
+      "source": {
+        "source": "local",
+        "path": "./"
       },
-      "homepage": "https://21st.dev",
-      "keywords": [
-        "react",
-        "shadcn",
-        "ui",
-        "components",
-        "mcp",
-        "frontend",
-        "cli"
-      ]
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
     }
   ]
 }

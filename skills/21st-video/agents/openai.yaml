@@ -1,0 +1,4 @@
+interface:
+  display_name: "21st Video"
+  short_description: "Create and edit product videos with 21st"
+  default_prompt: "Use 21st-video to make a launch video for this repo and open the editable project beside the chat."
